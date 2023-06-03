@@ -34,8 +34,8 @@ set_values() {
 
 ## Launch Polybar with selected style
 launch_bar() {
-	STYLE="default"
-	bash "$HOME"/.config/openbox/polybar/"$STYLE"/launch.sh
+	STYLE="colorblocks"
+	bash "$HOME"/.config/polybar/"$STYLE"/launch.sh
 }
 
 # Execute functions

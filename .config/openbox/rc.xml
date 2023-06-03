@@ -452,7 +452,7 @@
     <!-- Screenshot Keys -->
     <keybind key="Print">
       <action name="Execute">
-        <command>takeshot --now</command>
+        <command>flameshot gui</command>
       </action>
     </keybind>
     <keybind key="A-Print">
@@ -487,7 +487,7 @@
         <command>furminal</command>
       </action>
     </keybind>
-    <keybind key="W-f">
+    <keybind key="W-e">
       <action name="Execute">
         <command>thunar</command>
       </action>
@@ -497,7 +497,7 @@
         <command>firefox</command>
       </action>
     </keybind>
-    <keybind key="W-e">
+    <keybind key="W-f">
       <action name="Execute">
         <command>geany</command>
       </action>
@@ -505,7 +505,7 @@
     <!-- Rofi -->
     <keybind key="A-F1">
       <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/launcher</command>
+        <command>~/.config/rofi/launcher.sh</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -513,19 +513,9 @@
         <command>networkmanager_dmenu</command>
       </action>
     </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/music</command>
-      </action>
-    </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/powermenu</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/screenshot</command>
+        <command>~/.config/rofi/powermenu.sh</command>
       </action>
     </keybind>
     <keybind key="W-r">

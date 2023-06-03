@@ -26,11 +26,14 @@ exec picom &
 ## Launch Polybar
 bash ~/.config/openbox/polybar/launch.sh
 
+## Autohide polybar when not active
+##bash ~/.config/polybar/colorblocks/scripts/autohide-polybar.sh &
+
 ## Notification Daemon
 exec dunst &
 
 ## Start Music Player Daemon
-exec mpd &
+## exec mpd &
 
 ## Launch Plank
 exec plank &
