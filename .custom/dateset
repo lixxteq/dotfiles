@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo systemctl stop systemd-timesyncd.service
+sudo timedatectl set-time "$1"

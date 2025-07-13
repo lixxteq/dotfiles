@@ -1,0 +1,31 @@
+#!/bin/bash
+# Set up virtual evdi display and start x11vnc server
+
+VDVI="DVI-I-1-1"
+VPORT="DVI-I-1"
+PRIMARY="eDP"
+
+while getopts "s" opt; do
+    case $opt in
+        "-s" | "--stop")
+        kill $(pgrep -f x11vnc)
+        xrandr --output $VDVI --off
+        sudo -s <<EOF
+        rmmod evdi
+EOF
+        exit 0
+        ;;
+    esac
+done
+
+sudo -s <<EOF
+modprobe evdi initial_device_count=1
+echo on | tee /sys/kernel/debug/dri/0/$VPORT/force
+EOF
+
+xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode $VDVI 1920x1080_60.00
+xrandr --output $VDVI --mode 1920x1080_60.00 --right-of $PRIMARY
+echo $(ip addr show wlan0 | grep -oP 'inet \K[\d.]+')
+x11vnc -display :0 -forever -noxdamage -passwd $1 -clip 1920x1080+1920+0 -nocursorpos -nocursorshape -wait 5 -noshm > /dev/null 2>&1 &
+

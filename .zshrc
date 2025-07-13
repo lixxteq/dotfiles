@@ -6,30 +6,16 @@ ZSH_THEME="nord/nord"
 plugins=(git branch npm pip zsh-autosuggestions zsh-syntax-highlighting zsh-dircolors-nord)
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-alias vpnstart="sudo wg-quick up ~/Documents/hosting_related/algo-master/configs/18.235.219.210/wireguard/admin_desktop.conf"
-alias vpnstop="sudo wg-quick down ~/Documents/hosting_related/algo-master/configs/18.235.219.210/wireguard/admin_desktop.conf"
 alias vpnstat="sudo wg show"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode disabled  # disable automatic updates
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -42,16 +28,22 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+#export http_proxy="socks5://127.0.0.1:7897"
+#export https_proxy="socks5://127.0.0.1:7897"
+alias myip="curl ipinfo.io"
+alias sudop="sudo env PATH=$PATH"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$HOME/sdk/flutter/bin:$HOME/.custom:$ANDROID_HOME/platform-tools/:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+export PATH="$PATH:$HOME/.custom"
+
